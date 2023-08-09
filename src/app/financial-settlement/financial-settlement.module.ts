@@ -14,6 +14,9 @@ import { FormSettlementComponent } from './form-settlement/form-settlement.compo
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    SettlmentListComponent
   ]
 })
 export class FinancialSettlementModule { }
