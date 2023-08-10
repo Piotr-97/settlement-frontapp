@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { SettlementService, financialSettlements } from '../services/settlement.service';
+import { SettlementService } from '../services/settlement.service';
 
 @Component({
-  selector: 'app-form-settlement',
-  templateUrl: './form-settlement.component.html',
-  styleUrls: ['./form-settlement.component.css']
+  selector: 'app-modify-form',
+  templateUrl: './modify-form.component.html',
+  styleUrls: ['./modify-form.component.css']
 })
-export class FormSettlementComponent implements OnInit {
+export class ModifyFormComponent {
 
   constructor(private fb: FormBuilder,private settlementService : SettlementService){
   }
@@ -16,6 +16,7 @@ export class FormSettlementComponent implements OnInit {
   }
 
   userForm = this.fb.group({
+    idcompanysettlement: ['', Validators.required],
     firstname: ['', Validators.required],
     lastname: ['', Validators.required],
     description: ['', Validators.required],
@@ -26,15 +27,19 @@ export class FormSettlementComponent implements OnInit {
   submit(event: Event) {
     if (this.userForm.valid) {
       const newSettlement = {
+        idcompanysettlement: this.userForm.value.idcompanysettlement as string,
         firstname: this.userForm.value.firstname as string,
         lastname: this.userForm.value.lastname as string,
         description: this.userForm.value.description as string,
         expense: this.userForm.value.expense as string,
     
       };
-      this.settlementService.addfinancialSettlement(newSettlement.firstname,newSettlement.lastname,parseFloat(newSettlement.expense)
+
+    
+      this.settlementService.modifyfinancialSettlement(parseFloat( newSettlement.idcompanysettlement),newSettlement.firstname,newSettlement.lastname,parseFloat(newSettlement.expense)
       ,newSettlement.description);
-      location.reload();
+    
     }
+    location.reload();
 }
 }

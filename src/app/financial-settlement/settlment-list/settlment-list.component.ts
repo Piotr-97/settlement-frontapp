@@ -26,6 +26,9 @@ export class SettlmentListComponent implements OnInit{
   click(id: number){
     this.router.navigate(["/finance-settlement",id]);
   }
+  moveToModifyForm(id: number){
+    this.router.navigate(["/settlement-modify",id]);
+  }
 
   async delete(settlement: financialSettlements){
     this.setttleService.deletefinancialSettlement(settlement);
@@ -39,6 +42,5 @@ export class SettlmentListComponent implements OnInit{
   sortByExpenseAsc() {
     this.setttleService.sortSettlementsbyExpense();
     }
-
 
 }

@@ -63,6 +63,24 @@ export class SettlementService {
     return response1
   }
 
+
+  async modifyfinancialSettlement(idCompanySettlement: number,firstname: string,lastname: string, expense: number,description: string): Promise<financialSettlements> {
+  
+    const financialSettlement = {
+      idCompanySettlement: idCompanySettlement,
+      firstname : firstname,
+      lastname: lastname,
+      description: description,
+      expense : expense,
+    };
+    const response1 = await firstValueFrom(
+    this.http.put<financialSettlements>('http://localhost:8080/finance-settlements',financialSettlement));
+
+    console.log(response1, "resultat");
+    return response1
+  }
+
+
   async deletefinancialSettlement(financialSettlement: financialSettlements):  Promise<void> {
     await firstValueFrom(
      this.http.delete<void>(`http://localhost:8080/finance-settlements/${financialSettlement.idCompanySettlement}`)
