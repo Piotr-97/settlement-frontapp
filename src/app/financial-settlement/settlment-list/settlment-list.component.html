@@ -1,1 +1,37 @@
-<p>settlment-list works!</p>
+
+<body>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>description</th>
+          <th>expense</th>
+          <th>actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor=" let settlement of settlements">
+            <td>{{settlement.idCompanySettlement}}</td>
+            <td>{{settlement.firstname}} {{settlement.lastname}}</td>
+            <td>{{settlement.description}}</td>
+            <td>{{settlement.expense | currency:'GBP':'symbol':'1.2-2'}}</td>
+            <td>
+              <div >
+                <button class="button" (click)="delete(settlement)">Remove</button>
+                <a (click)="click(settlement.idCompanySettlement)">Details</a>
+              </div>
+            </td>
+      </tbody>
+    </table>
+    <div class="container">
+  
+      <button (click)="sortByExpenseAsc()">sort by expense ASC</button>
+    </div>
+  
+    
+    
+    
+    
+    
+    

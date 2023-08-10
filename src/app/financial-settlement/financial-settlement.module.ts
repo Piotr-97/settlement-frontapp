@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SettlmentListComponent } from './settlment-list/settlment-list.component';
 import { SettlmentComponent } from './settlment/settlment.component';
 import { FormSettlementComponent } from './form-settlement/form-settlement.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -10,13 +13,13 @@ import { FormSettlementComponent } from './form-settlement/form-settlement.compo
   declarations: [
     SettlmentListComponent,
     SettlmentComponent,
-    FormSettlementComponent
+    FormSettlementComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule, AppRoutingModule,ReactiveFormsModule
   ],
   exports:[
-    SettlmentListComponent
+    SettlmentListComponent,FormSettlementComponent
   ]
 })
 export class FinancialSettlementModule { }

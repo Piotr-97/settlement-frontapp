@@ -1,1 +1,6 @@
-<p>settlment works!</p>
+<div class="container">
+<h1>Settlement</h1>
+<p>Name: {{ settlement?.firstname }} {{ settlement?.lastname }}</p>
+<p>Description: {{ settlement?.description }} </p>
+<p>Expense: {{ settlement?.expense  | currency:'GBP':'symbol':'1.2-2'}}</p>
+</div>

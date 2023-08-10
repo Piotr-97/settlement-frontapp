@@ -1,1 +1,19 @@
-<p>form-settlement works!</p>
+<h1>Create Settlement</h1>
+<form  [formGroup]="userForm" (ngSubmit)="submit($event)">
+  <label for="first-name">First name:</label>
+  <input id="first-name" type="text"  formControlName="firstname" />
+
+  <label for="last-name">Last name:</label>
+  <input id="last-name" type="text" formControlName="lastname"/>
+
+  <label for="description">description:</label>
+  <input id="description" type="text"  formControlName="description"/>
+
+  <label for="expense">expense:</label>
+  <input id="expense" type="expense" formControlName="expense"/>
+
+  <div class="actions">
+    <div class="spacer"></div>
+    <button type="submit">Create</button>
+  </div>
+</form>
